@@ -14,7 +14,7 @@ mongoose.connection.on('error', (err) =>{
     console.error(err);
 })
 
-const MONGO_URL = 'mongodb+srv://arjeloujelou:paT6Xl50dVkemDps@cluster0.rogniex.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URL = 'mongodb+srv://arjeloujelou:paT6Xl50dVkemDps@cluster0.rogniex.mongodb.net/test?retryWrites=true&w=majority';
 
 const PORT = process.env.PORT || 8000;
 
