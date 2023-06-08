@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, '..','public')));
 app.post('/products',mongoPractice.createProduct)
 app.get('/product',mongoPractice.getProducts)
 app.get('/product/:id',mongoPractice.getProduct)
-app.get('/product/user/:uid',mongoPractice.getProductUsersID)
+app.get('/product/user/:id',mongoPractice.getProductUsersID)
 
 
 

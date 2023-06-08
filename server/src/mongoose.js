@@ -35,13 +35,23 @@ const getProduct = async (req, res, next) => {
     
 };
 
-const getProductUsersID = async (req, res, next) => {
+//GET product by user ID
+const getProductUsersID = async (req, res, ) => {
+    const userID = req.params.id;
+    let places;
+
    try {
-    const user = await Product.find(req.params.uid).exec();
-    res.json(user);
+    places = await Product.find({uid: userID});
+
    }catch {
      res.status(404).json('Invalid user ID');
    }
+
+//    res.json({places: places.map(place => place.toObject({getters:true})) });
+   res.json(places);
+   console.log(userID);
+
+  
 }
 
 exports.createProduct = createProduct;
