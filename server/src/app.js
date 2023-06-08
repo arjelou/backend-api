@@ -22,6 +22,9 @@ app.use(express.static(path.join(__dirname, '..','public')));
 //simple approach to create a new data
 app.post('/products',mongoPractice.createProduct)
 app.get('/product',mongoPractice.getProducts)
+app.get('/product/:id',mongoPractice.getProduct)
+app.get('/product/user/:uid',mongoPractice.getProductUsersID)
+
 
 
 
