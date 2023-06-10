@@ -24,6 +24,8 @@ app.post('/products',mongoPractice.createProduct)
 app.get('/product',mongoPractice.getProducts)
 app.get('/product/:id',mongoPractice.getProduct)
 app.get('/product/user/:id',mongoPractice.getProductUsersID)
+app.delete('/product/user/:pid',mongoPractice.deleteProduct)
+app.patch('/product/update/:pid',mongoPractice.UpdateProducts)
 
 
 

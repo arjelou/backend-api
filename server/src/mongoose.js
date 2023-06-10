@@ -46,15 +46,54 @@ const getProductUsersID = async (req, res, ) => {
    }catch {
      res.status(404).json('Invalid user ID');
    }
-
 //    res.json({places: places.map(place => place.toObject({getters:true})) });
    res.json(places);
    console.log(userID);
+}
 
-  
+
+//Update products with userID
+const UpdateProducts = async (req, res) => {
+    const pid = req.params.pid;
+    const { name, price, uid } = req.body;
+
+    let places;
+        try{
+            places = await Product.findByIdAndUpdate(pid);
+            console.log(places);
+        }catch{
+            res.status(404).json('Invalid Product ID not found update!');
+            return;
+        }
+
+            places.name = name;
+            places.price = price;
+            places.uid = uid;
+            await places.save();
+    res.status(200).json({message: 'Success Updated product!'});
+        
+}
+
+
+//DELETE a product
+const deleteProduct = async (req, res) =>{
+    const pid = req.params.pid;
+
+        let places;
+        try{
+            places = await Product.findByIdAndRemove(pid);
+            console.log(places);
+        }catch{
+            res.status(404).json('Invalid Product ID');
+            return;
+        }
+
+    res.status(200).json({message: 'Success deleted product!'});
 }
 
 exports.createProduct = createProduct;
 exports.getProducts = getProducts;
 exports.getProduct = getProduct;
 exports.getProductUsersID = getProductUsersID;
+exports.deleteProduct = deleteProduct;
+exports.UpdateProducts = UpdateProducts;
