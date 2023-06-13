@@ -27,6 +27,9 @@ app.get('/product/user/:id',mongoPractice.getProductUsersID)
 app.delete('/product/user/:pid',mongoPractice.deleteProduct)
 app.patch('/product/update/:pid',mongoPractice.UpdateProducts)
 
+app.post('/user/singup',mongoPractice.singupUser);
+
+
 
 
 
